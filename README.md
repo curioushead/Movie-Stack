@@ -19,6 +19,16 @@ A modern, fast, and robust Flutter mobile app to showcase trending movies. Desig
 
 ---
 
+## 📦 Download
+
+Want to try the app?
+
+[![Download APK](https://img.shields.io/badge/Download-APK-blue?style=for-the-badge&logo=android)](https://github.com/curioushead/Movie-Stack/releases/download/v1.0.0/MovieStack_v1.0_release.apk)
+
+> 💡 Download the latest release APK and install it on your Android device.
+
+---
+
 ## 📚 Table of Contents
 
 - [✨ Features](#-features)
