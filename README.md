@@ -8,30 +8,65 @@
 
 A modern, fast, and robust Flutter mobile app to showcase trending movies. Designed with **offline-first functionality**, ensuring a smooth experience even without an internet connection.
 
+## 📸 Screenshots
+
 <p align="center">
-<img src="https://placehold.co/400x800/222222/FFFFFF?text=App+Screenshot" alt="App Screenshot">
+  <img src="assets/screenshots/screenshot1.png" alt="Screenshot 1" width="200"/>
+  <img src="assets/screenshots/screenshot2.png" alt="Screenshot 2" width="200"/>
+  <img src="assets/screenshots/screenshot3.png" alt="Screenshot 3" width="200"/>
+  <img src="assets/screenshots/screenshot4.png" alt="Screenshot 4" width="200"/>
+  <img src="assets/screenshots/screenshot5.png" alt="Screenshot 5" width="200"/>
 </p>
+
+---
+
+## 📚 Table of Contents
+
+- [✨ Features](#-features)
+- [⚙️ Architecture](#️-architecture)
+- [🚀 Getting Started](#-getting-started)
+- [📱 Build & Release](#-build--release)
+- [🤝 Contributing](#-contributing)
+- [📝 License](#-license)
 
 ---
 
 ## ✨ Features
 
-* **Trending Movies**: Browse the most popular movies trending by day or week.
-* **Offline-First**: View cached movies even without network access.
-* **Local Storage**: All movie data stored locally using **Hive**, a lightweight and fast NoSQL database.
-* **Clean Architecture**: Structured with the **BLoC pattern** for scalability, testability, and maintainability.
-* **Responsive UI**: Beautiful interface compatible with both iOS and Android.
-* **Modular Code**: Organized layers (presentation, domain, data) for better readability and maintainability.
+- 🔥 **Trending Movies**  
+  Browse the most popular movies trending by day or week.
+
+- 📶 **Offline-First**  
+  View popular and top-rated movies even without an internet connection, thanks to a robust offline-first caching strategy.
+
+- 📋 **Comprehensive Movie Details**  
+  Get in-depth information on any movie, including cast, reviews, plot summaries, user ratings, and similar films.
+
+- 💾 **Local Storage**  
+  All movie data is stored locally using [Hive](https://pub.dev/packages/hive), a lightweight and fast NoSQL database, ensuring a smooth user experience.
+
+- 📱 **Responsive UI**  
+  A beautiful, intuitive interface that adapts smoothly to both iOS and Android devices.
+
+- 🧩 **Modular Code**  
+  Organized codebase with clear separation into layers for better readability and long-term maintainability.
 
 ---
 
 ## ⚙️ Architecture
 
-**Clean Architecture** with three main layers:
+This project follows the principles of **Clean Architecture**, enabling testability, modularity, and separation of concerns.
 
-1. **Presentation Layer**: Handles UI components and BLoCs, user input, and state updates.
-2. **Domain Layer**: Core business logic and models, independent of frameworks.
-3. **Data Layer**: Manages API calls and local data caching using Hive.
+- 🎨 **Presentation Layer**  
+  Contains UI components and manages state using the **BLoC (Business Logic Component)** pattern. Handles user input and displays data.
+
+- 🧠 **Domain Layer**  
+  Includes core business logic, entities, and use cases. This layer is framework-agnostic and defines interfaces for data access.
+
+- 📦 **Data Layer**  
+  Manages all external data sources like REST APIs and local databases.  
+  - Utilizes **Hive** for offline caching.  
+  - Implements repositories and data sources.
 
 ---
 
@@ -127,6 +162,7 @@ IPA location: `build/ios/iphoneos/Runner.app`
 ## 🤝 Contributing
 
 Contributions are welcome! Open an issue or submit a pull request for bug fixes or new features.
+Feel free to open issues for bug reports, feature requests, or suggestions.
 
 ---
 
