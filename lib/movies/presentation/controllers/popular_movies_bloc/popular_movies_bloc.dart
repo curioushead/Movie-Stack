@@ -1,0 +1,86 @@
+import 'dart:async';
+
+import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_stack/core/domain/entities/media.dart';
+import 'package:movie_stack/core/utils/enums.dart';
+import 'package:movie_stack/movies/domain/usecases/get_all_popular_movies_usecase.dart';
+
+part 'popular_movies_event.dart';
+part 'popular_movies_state.dart';
+
+class PopularMoviesBloc extends Bloc<PopularMoviesEvent, PopularMoviesState> {
+  final GetAllPopularMoviesUseCase _allPopularMoviesUseCase;
+
+  PopularMoviesBloc(this._allPopularMoviesUseCase)
+      : super(const PopularMoviesState()) {
+    on<GetPopularMoviesEvent>(_getAllPopularMovies);
+    on<FetchMorePopularMoviesEvent>(_fetchMoreMovies);
+  }
+
+  int page = 1;
+
+  Future<void> _getAllPopularMovies(
+      GetPopularMoviesEvent event, Emitter<PopularMoviesState> emit) async {
+    if (state.status == GetAllRequestStatus.loading) {
+      return;
+    }
+
+    page = 1;
+    emit(state.copyWith(
+      status: GetAllRequestStatus.loading,
+      movies: [],
+      message: '',
+    ));
+
+    final result = await _allPopularMoviesUseCase(page);
+    result.fold(
+      (l) => emit(
+        state.copyWith(
+          status: GetAllRequestStatus.error,
+          message: l.message,
+        ),
+      ),
+      (r) {
+        page++;
+        emit(
+          state.copyWith(
+            status: GetAllRequestStatus.loaded,
+            movies: r,
+            message: '',
+          ),
+        );
+      },
+    );
+  }
+
+  Future<void> _fetchMoreMovies(FetchMorePopularMoviesEvent event,
+      Emitter<PopularMoviesState> emit) async {
+    if (state.status == GetAllRequestStatus.loading ||
+        state.status == GetAllRequestStatus.fetchMoreLoading) {
+      return;
+    }
+
+    emit(state.copyWith(status: GetAllRequestStatus.fetchMoreLoading));
+
+    final result = await _allPopularMoviesUseCase(page);
+    result.fold(
+      (l) => emit(
+        state.copyWith(
+          status: GetAllRequestStatus.fetchMoreError,
+          message: l.message,
+        ),
+      ),
+      (r) {
+        page++;
+        emit(
+          state.copyWith(
+            status: GetAllRequestStatus.loaded,
+            movies: state.movies + r,
+            message: '',
+          ),
+        );
+      },
+    );
+  }
+}
