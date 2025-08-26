@@ -52,5 +52,5 @@ class DatabaseFailure extends Failure {
 
 class NetworkFailure extends Failure {
   const NetworkFailure(String message)
-      : super(message, 'No internet connection. Please check your network.');
+      : super(message, 'Internet connectivity issue. Please check your network.');
 }

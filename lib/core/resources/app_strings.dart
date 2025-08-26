@@ -1,9 +1,9 @@
 class AppStrings {
   static const String appTitle = 'Movie Stack';
-  static const String seeAll = 'See all';
-  static const String popularMovies = 'Popular movies';
-  static const String topRatedMovies = 'Top rated movies';
-  static const String trendingMovies = 'Trending movies';
+  static const String seeAll = 'See All';
+  static const String popularMovies = 'Popular Movies';
+  static const String topRatedMovies = 'Top Rated Movies';
+  static const String trendingMovies = 'Trending Movies';
   static const String story = 'Story';
   static const String videos = 'Videos';
   static const String cast = 'Cast';
@@ -20,10 +20,10 @@ class AppStrings {
   static const String watchlistIsEmpty = 'Your watchlist is empty';
   static const String watchlistText =
       'After adding movies to your watchlist, they will appear here.';
-  static const String somethingWentWrong = 'Something went wrong';
-  static const String tryAgain = 'Try again';
-  static const String noResults = 'No results';
+  static const String somethingWentWrong = 'Something Went Wrong';
+  static const String tryAgain = 'Try Again';
+  static const String noResults = 'No Results';
   static const String failedToLoad = 'Failed to load';
   static const String today = 'Today';
-  static const String thisWeek = 'This week';
+  static const String thisWeek = 'This Week';
 }

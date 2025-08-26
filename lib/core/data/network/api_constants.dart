@@ -1,9 +1,9 @@
-import 'package:movie_stack/core/env/env.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class ApiConstants {
-  static final String apiKey = Env.apiKey;
+  static final String apiKey = dotenv.env['API_KEY'] ?? '';
   static const String baseUrl = 'https://api.themoviedb.org/3';
-  static final String accessToken = Env.accessToken;
+  static final String accessToken = dotenv.env['ACCESS_TOKEN'] ?? '';
 
   static Map<String, String> get headers => {
         'Authorization': 'Bearer $accessToken',
